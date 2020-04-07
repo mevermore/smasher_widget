@@ -14,6 +14,8 @@ android {
         consumerProguardFiles 'consumer-rules.pro'
     }
 
+
+
     buildTypes {
         release {
             minifyEnabled false
@@ -21,13 +23,57 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    api "com.google.android.material:material:$material"
+    api "com.google.android:flexbox:$flexbox"
+
+    api "androidx.navigation:navigation-fragment:$navigation"
+    api "androidx.navigation:navigation-ui:$navigation"
+
+    api "androidx.activity:activity:$activity"
+    api "androidx.fragment:fragment:$fragment"
+    api "androidx.transition:transition:$transition"
+    api "androidx.appcompat:appcompat:$appcompat"
+    api "androidx.viewpager2:viewpager2:$viewpager2"
+    api "androidx.recyclerview:recyclerview:$recyclerView"
+    api "androidx.cardview:cardview:$cardview"
+    api "androidx.legacy:legacy-support-v4:$supportV4"
+    api "androidx.constraintlayout:constraintlayout:$constraintlayout"
+
+    api "androidx.vectordrawable:vectordrawable:$vectordrawable"
+
+    api "com.airbnb.android:lottie:$lottie"
+
+    api "com.scwang.smartrefresh:SmartRefreshLayout:$smartRefreshLayout"
+    api "com.scwang.smartrefresh:SmartRefreshHeader:$smartRefreshHeader"
+
+    //选择器
+    api "com.contrarywind:Android-PickerView:$pickerView"
+    api "com.contrarywind:wheelview:$wheelview"
+
+    //开源动画库
+    api "com.nineoldandroids:library:$nineoldandroids"
+
+    implementation 'com.github.ExcitedMoyu:smasher_core:1.0.3'
+    //implementation 'cn.ymex:banner:1.6.8'
+    //api 'com.youth.banner:banner:1.4.10'
+
+    //butterknife
+    api "com.jakewharton:butterknife:$butterknife"
+    //annotationProcessor是处理注解的工具，是APT(Annotation Processing Tool)的一种
+    annotationProcessor "com.jakewharton:butterknife-compiler:$butterknifeCompiler"
+
+    testImplementation "junit:junit:$junit"
+    androidTestImplementation "androidx.test:runner:$test_runner"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core"
+
 }
