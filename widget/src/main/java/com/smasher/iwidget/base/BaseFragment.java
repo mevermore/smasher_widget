@@ -6,15 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.smasher.core.other.BusProvider;
 import com.smasher.iwidget.struct.FunctionManager;
-
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 
 /**
@@ -25,10 +23,9 @@ public abstract class BaseFragment extends Fragment {
     private static final String TAG = "BaseFragment";
     protected FunctionManager mFunctionManager;
     protected Context mContext;
-    protected int mPageIndex = 1;
+    protected View root;
 
     private boolean mFirstLoad = true;
-    private Unbinder unbinder;
 
 
     @Override
@@ -58,17 +55,15 @@ public abstract class BaseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = LayoutInflater.from(mContext).inflate(getLayoutRes(), container, false);
-        unbinder = ButterKnife.bind(this, view);
+        root = LayoutInflater.from(mContext).inflate(getLayoutRes(), container, false);
         initView();
-        return view;
+        return root;
     }
 
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        unbinder.unbind();
         BusProvider.getInstance().unregister(this);
     }
 
@@ -111,7 +106,7 @@ public abstract class BaseFragment extends Fragment {
      *
      * @return LayoutRes
      */
-    protected abstract int getLayoutRes();
+    protected abstract @LayoutRes int getLayoutRes();
 
 
 }

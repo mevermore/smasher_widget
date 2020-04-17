@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,7 +23,6 @@ import com.smasher.iwidget.R;
 
 import java.lang.reflect.Method;
 
-import butterknife.ButterKnife;
 
 
 /**
@@ -57,8 +57,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         BusProvider.getInstance().register(this);
 
-        ButterKnife.bind(this);
-
         initView();
 
         initData();
@@ -80,8 +78,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         BusProvider.getInstance().unregister(this);
-        ActivityManager am = ActivityManager.getInstance();
-        am.removeActivity(this);
+        ActivityManager.getInstance().removeActivity(this);
     }
 
     @Override
@@ -176,7 +173,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      *
      * @return RootView
      */
-    public abstract int getRootViewRes();
+    public abstract @LayoutRes int getRootViewRes();
 
     /**
      * 进行初始化相关的View
