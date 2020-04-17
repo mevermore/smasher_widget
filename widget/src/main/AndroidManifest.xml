@@ -1,3 +1,21 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.smasher.iwidget" />
+    package="com.smasher.iwidget">
+
+    <application>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.android7.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+    </application>
+
+
+</manifest>

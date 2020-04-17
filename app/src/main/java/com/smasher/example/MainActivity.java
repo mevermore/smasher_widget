@@ -1,6 +1,7 @@
 package com.smasher.example;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import android.content.Context;
 import android.os.Bundle;
