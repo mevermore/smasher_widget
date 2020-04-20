@@ -1,7 +1,6 @@
-package com.smasher.example;
+package com.smasher.example.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.FileProvider;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.smasher.example.R;
 import com.smasher.iwidget.banner.RecyclerBanner;
 import com.smasher.iwidget.banner.callback.BindViewCallBack;
 import com.smasher.iwidget.banner.callback.CreateViewCallBack;
@@ -19,14 +19,14 @@ import com.smasher.iwidget.banner.callback.OnClickBannerListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class BannerActivity extends AppCompatActivity {
 
     RecyclerBanner banner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_banner);
         banner = findViewById(R.id.banner);
         init();
     }
@@ -68,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
         })
-                .execute(list);//填充数据
+                //填充数据
+                .execute(list);
 
     }
 
