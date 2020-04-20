@@ -1,5 +1,6 @@
 package com.smasher.example.activity;
 
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;

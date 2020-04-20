@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.setClass(this, StructActivity.class);
                 break;
             case R.id.dialog_example:
-                intent.setClass(this, BannerActivity.class);
+                intent.setClass(this, DialogsActivity.class);
                 break;
             default:
                 break;
