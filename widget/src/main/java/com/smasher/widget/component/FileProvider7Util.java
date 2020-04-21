@@ -1,4 +1,4 @@
-package com.smasher.widget;
+package com.smasher.widget.component;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +13,7 @@ import java.io.File;
  * @author Smasher
  * on 2020/4/17 0017
  */
-public class FileProvider7 {
+public class FileProvider7Util {
 
     public static Uri getUriForFile(Context context, File file) {
         Uri fileUri = null;
