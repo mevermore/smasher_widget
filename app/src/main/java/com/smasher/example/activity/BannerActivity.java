@@ -11,10 +11,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.smasher.example.R;
-import com.smasher.iwidget.banner.RecyclerBanner;
-import com.smasher.iwidget.banner.callback.BindViewCallBack;
-import com.smasher.iwidget.banner.callback.CreateViewCallBack;
-import com.smasher.iwidget.banner.callback.OnClickBannerListener;
+import com.smasher.widget.banner.RecyclerBanner;
+import com.smasher.widget.banner.callback.BindViewCallBack;
+import com.smasher.widget.banner.callback.CreateViewCallBack;
+import com.smasher.widget.banner.callback.OnClickBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;

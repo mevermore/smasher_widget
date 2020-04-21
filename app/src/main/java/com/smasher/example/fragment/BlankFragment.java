@@ -13,8 +13,8 @@ import androidx.fragment.app.Fragment;
 
 import com.smasher.example.R;
 import com.smasher.example.activity.StructActivity;
-import com.smasher.iwidget.struct.FunctionException;
-import com.smasher.iwidget.struct.FunctionManager;
+import com.smasher.widget.struct.FunctionException;
+import com.smasher.widget.struct.FunctionManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

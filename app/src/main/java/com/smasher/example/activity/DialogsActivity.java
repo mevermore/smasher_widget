@@ -1,9 +1,9 @@
 package com.smasher.example.activity;
 
-import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.graphics.drawable.ClipDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.widget.Button;
@@ -26,17 +26,29 @@ public class DialogsActivity extends AppCompatActivity {
     Button mButton;
 
     ValueAnimator animator;
-    ClipDrawable clipDrawable;
+    Drawable start;
+    Drawable finish;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dialogs);
         ButterKnife.bind(this);
-        Drawable drawable = ContextCompat.getDrawable(this, R.drawable.icon_load_finish);
-        clipDrawable = new ClipDrawable(drawable, Gravity.START, ClipDrawable.HORIZONTAL);
-        mImageView.setImageDrawable(clipDrawable);
+
+        start = ContextCompat.getDrawable(this, R.drawable.icon_load_start);
+        finish = ContextCompat.getDrawable(this, R.drawable.icon_load_finish);
+
+        planB(start, finish);
+
     }
+
+    private void planB(Drawable start, Drawable finish) {
+        ClipDrawable clipDrawable = new ClipDrawable(finish, Gravity.START, ClipDrawable.HORIZONTAL);
+        Drawable[] drawables = new Drawable[]{start, clipDrawable};
+        LayerDrawable layerDrawable = new LayerDrawable(drawables);
+        mImageView.setImageDrawable(layerDrawable);
+    }
+
 
     @OnClick(R.id.button)
     public void onViewClicked() {

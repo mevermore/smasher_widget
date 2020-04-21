@@ -1,6 +1,5 @@
 package com.smasher.example.activity;
 
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -14,11 +13,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.smasher.example.R;
 import com.smasher.example.fragment.BlankFragment;
-import com.smasher.iwidget.struct.FunctionManager;
-import com.smasher.iwidget.struct.communication.FunctionNoParamAndResult;
-import com.smasher.iwidget.struct.communication.FunctionWithParamAndResult;
-import com.smasher.iwidget.struct.communication.FunctionWithParamOnly;
-import com.smasher.iwidget.struct.communication.FunctionWithResultOnly;
+import com.smasher.widget.struct.FunctionManager;
+import com.smasher.widget.struct.communication.FunctionNoParamAndResult;
+import com.smasher.widget.struct.communication.FunctionWithParamAndResult;
+import com.smasher.widget.struct.communication.FunctionWithParamOnly;
+import com.smasher.widget.struct.communication.FunctionWithResultOnly;
 
 import java.util.List;
 

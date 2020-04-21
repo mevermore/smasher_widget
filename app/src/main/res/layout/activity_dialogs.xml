@@ -14,9 +14,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/icon_load_start"
-        tools:srcCompat="@drawable/icon_load_finish" />
+        app:layout_constraintTop_toTopOf="parent" />
+    <!--    android:background="@drawable/icon_load_start"-->
+    <!--    tools:srcCompat="@drawable/icon_load_finish"-->
 
     <Button
         android:id="@+id/button"
@@ -29,4 +29,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
