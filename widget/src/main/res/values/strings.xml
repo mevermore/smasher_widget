@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_mine">我</string>
+    <string name="app_home">首页</string>
+    <string name="app_back">返回</string>
+    <string name="app_ok">确定</string>
+    <string name="app_cancel">取消</string>
+    <string name="app_continue">继续</string>
+    <string name="app_tip">提示</string>
+    <string name="app_send">发送</string>
+    <string name="app_set">设置</string>
+    <string name="app_save">保存</string>
+    <string name="app_delete">删除</string>
+    <string name="app_next_step">下一步</string>
+    <string name="app_prev_step">上一步</string>
+    <string name="app_finish">完成</string>
+    <string name="app_find">查找</string>
+    <string name="app_edit">编辑</string>
+    <string name="app_fine">好的</string>
+    <string name="app_submission">提交</string>
+    <string name="app_refuse">残忍拒绝</string>
+    <string name="app_fold">收起详情</string>
+    <string name="app_quit">退出</string>
+    <string name="app_restart">重启</string>
+    <string name="app_exit">退出当前登录</string>
+    <string name="app_exit_verify">再按一次退出「%s」</string>
+
+</resources>

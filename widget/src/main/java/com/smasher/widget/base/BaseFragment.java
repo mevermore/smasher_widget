@@ -106,7 +106,8 @@ public abstract class BaseFragment extends Fragment {
      *
      * @return LayoutRes
      */
-    protected abstract @LayoutRes int getLayoutRes();
+    protected abstract @LayoutRes
+    int getLayoutRes();
 
 
 }
