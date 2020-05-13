@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent();
         switch (view.getId()) {
             case R.id.banner_example:
-                intent.setClass(this, BannerActivity.class);
                 break;
             case R.id.struct_example:
                 intent.setClass(this, StructActivity.class);
