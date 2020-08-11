@@ -38,7 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        mStateViewHelper = new StateViewHelper(mContainer).onReloadClickListener(this);
+        mStateViewHelper = new StateViewHelper(mContainer);
+        mStateViewHelper.onReloadClickListener(this);
         mStateViewHelper.stateLoading();
 
         mContainer.postDelayed(new Runnable() {
