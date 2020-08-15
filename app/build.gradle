@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion defaultCompileSdkVersion
-    buildToolsVersion defaultBuildToolsVersion
+    compileSdkVersion smasher_compileSdkVersion
+    buildToolsVersion smasher_buildToolsVersion
 
     defaultConfig {
         applicationId "com.smasher.example"
 
-        minSdkVersion defaultMinSdkVersion
-        targetSdkVersion defaultTargetSdkVersion
+        minSdkVersion smasher_minSdkVersion
+        targetSdkVersion smasher_targetSdkVersion
 
         versionCode 1
         versionName "1.0"

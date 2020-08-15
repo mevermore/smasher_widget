@@ -1,13 +1,13 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion defaultCompileSdkVersion
-    buildToolsVersion defaultBuildToolsVersion
+    compileSdkVersion smasher_compileSdkVersion
+    buildToolsVersion smasher_buildToolsVersion
 
     defaultConfig {
 
-        minSdkVersion defaultMinSdkVersion
-        targetSdkVersion defaultTargetSdkVersion
+        minSdkVersion smasher_minSdkVersion
+        targetSdkVersion smasher_targetSdkVersion
 
         versionCode 1
         versionName "1.0"
@@ -55,9 +55,6 @@ dependencies {
 
     api "com.airbnb.android:lottie:$lottie"
 
-    api "com.scwang.smartrefresh:SmartRefreshLayout:$smartRefreshLayout"
-    api "com.scwang.smartrefresh:SmartRefreshHeader:$smartRefreshHeader"
-
     //选择器
     api "com.contrarywind:Android-PickerView:$pickerView"
     api "com.contrarywind:wheelview:$wheelview"
@@ -65,7 +62,7 @@ dependencies {
     //开源动画库
     api "com.nineoldandroids:library:$nineoldandroids"
 
-    implementation 'com.github.mevermore:smasher_core:1.0.3'
+    implementation 'com.github.mevermore:smasher_core:1.0.4'
     //implementation 'cn.ymex:banner:1.6.8'
     //api 'com.youth.banner:banner:1.4.10'
 

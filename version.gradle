@@ -24,8 +24,8 @@ ext {
     rxAndroid = '2.1.1'
     retrofit = '2.9.0'
 
-    butterknife = '10.2.1'
-    butterknifeCompiler = '10.2.1'
+    butterknife = '10.2.3'
+    butterknifeCompiler = '10.2.3'
 
     permission = "3.0.0"
     otto = '1.3.8'
@@ -55,15 +55,9 @@ ext {
     test_runner = '1.2.0'
     espresso_core = '3.2.0'
 
-    minSdkVersion = 19
-    targetSdkVersion = 28
-    compileSdkVersion = 28
-    buildToolsVersion = '30.0.1'
-
-    defaultMinSdkVersion = 19
-    defaultTargetSdkVersion = 29
-    defaultCompileSdkVersion = 29
-    defaultBuildToolsVersion = '30.0.1'
-
+    smasher_minSdkVersion = 19
+    smasher_targetSdkVersion = 28
+    smasher_compileSdkVersion = 28
+    smasher_buildToolsVersion = '30.0.0'
 
 }
