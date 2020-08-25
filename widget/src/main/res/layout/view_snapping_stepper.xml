@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,7 +10,7 @@
         android:id="@+id/ivStepperMinus"
         android:layout_width="@dimen/stepper_width_button"
         android:layout_height="match_parent"
-        android:background="@color/selector_stepper_button"
+        android:background="@drawable/selector_stepper_button"
         android:clickable="true"
         android:padding="@dimen/stepper_padding_button"
         android:scaleType="centerInside"
@@ -20,7 +21,7 @@
         android:layout_width="@dimen/stepper_width_button"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
-        android:background="@color/selector_stepper_button"
+        android:background="@drawable/selector_stepper_button"
         android:clickable="true"
         android:padding="@dimen/stepper_padding_button"
         android:scaleType="centerInside"
