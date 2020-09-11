@@ -13,5 +13,8 @@ public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
+        String ints = "0653";
+        int a = Integer.parseInt(ints);
+        System.out.println(a);
     }
 }

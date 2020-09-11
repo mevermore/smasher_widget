@@ -3,6 +3,9 @@ package com.smasher.widget.stepper;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -181,8 +184,33 @@ public class SnappingStepper extends RelativeLayout implements View.OnTouchListe
         ivStepperPlus.setOnTouchListener(this);
         setOnTouchListener(this);
 
+        tvStepperContent.addTextChangedListener(mTextWatcher);
+
         updateRunnable = new UpdateRunnable(this);
     }
+
+
+    TextWatcher mTextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            if (s != null) {
+                String temp = s.toString();
+                if (TextUtils.isDigitsOnly(temp)) {
+                    value = Integer.parseInt(s.toString());
+                }
+            }
+        }
+    };
 
 
     @Override
@@ -392,6 +420,11 @@ public class SnappingStepper extends RelativeLayout implements View.OnTouchListe
      */
     public void setMode(Mode mode) {
         this.mode = mode;
+    }
+
+
+    public void setEditAble(boolean editAble) {
+        tvStepperContent.setFocusable(editAble);
     }
 
     /**

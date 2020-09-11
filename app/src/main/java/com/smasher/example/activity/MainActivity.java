@@ -10,10 +10,10 @@ import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.smasher.example.R;
 import com.smasher.widget.state.StateViewHelper;
+import com.smasher.widget.stepper.SnappingStepper;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button mStructExample;
     @BindView(R.id.dialog_example)
     Button mDialogExample;
+    @BindView(R.id.stepper)
+    SnappingStepper stepper;
 
     private StateViewHelper mStateViewHelper;
 
@@ -41,6 +43,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mStateViewHelper = new StateViewHelper(mContainer);
         mStateViewHelper.onReloadClickListener(this);
         mStateViewHelper.stateLoading();
+
+
+        stepper.setEditAble(false);
 
         mContainer.postDelayed(new Runnable() {
             @Override
