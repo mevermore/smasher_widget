@@ -16,5 +16,15 @@ public class ExampleUnitTest {
         String ints = "0653";
         int a = Integer.parseInt(ints);
         System.out.println(a);
+
+        long valueTen = System.currentTimeMillis();
+        String valuesss = String.valueOf(valueTen).substring(0, 8);
+        //将其转换为十六进制并输出
+        System.out.println(valuesss);
+        String strHex = Integer.toHexString(Integer.parseInt(valuesss));
+        System.out.println(valueTen + " [十进制]---->[十六进制] " + strHex);
+        //将十六进制格式化输出
+        String strHex2 = String.format("%08x", valueTen);
+        System.out.println(valueTen + " [十进制]---->[十六进制] " + strHex2);
     }
 }

@@ -61,9 +61,7 @@ public class SnappingStepper extends RelativeLayout implements View.OnTouchListe
      * 枚举
      */
     public enum Mode {
-        /**
-         *
-         */
+
         AUTO(0), CUSTOM(1);
         private final int value;
 
@@ -182,6 +180,7 @@ public class SnappingStepper extends RelativeLayout implements View.OnTouchListe
         //设置后onclick产生的点击状态会失效
         ivStepperMinus.setOnTouchListener(this);
         ivStepperPlus.setOnTouchListener(this);
+
         setOnTouchListener(this);
 
         tvStepperContent.addTextChangedListener(mTextWatcher);
@@ -205,6 +204,9 @@ public class SnappingStepper extends RelativeLayout implements View.OnTouchListe
         public void afterTextChanged(Editable s) {
             if (s != null) {
                 String temp = s.toString();
+                if (TextUtils.isEmpty(temp)) {
+                    return;
+                }
                 if (TextUtils.isDigitsOnly(temp)) {
                     value = Integer.parseInt(s.toString());
                 }
