@@ -1,5 +1,4 @@
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.smasher.widget">
 
     <application>
@@ -11,8 +10,9 @@
             android:grantUriPermissions="true">
 
             <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"/>
+                android:name="FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+            <!--            android.support.FILE_PROVIDER_PATHS-->
         </provider>
 
     </application>
