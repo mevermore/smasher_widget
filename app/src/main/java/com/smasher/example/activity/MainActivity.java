@@ -11,9 +11,11 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.smasher.core.log.Logger;
 import com.smasher.example.R;
 import com.smasher.widget.state.StateViewHelper;
 import com.smasher.widget.stepper.SnappingStepper;
+import com.smasher.widget.stepper.ValueChangeListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mStateViewHelper.stateLoading();
 
 
-        stepper.setEditAble(false);
+        stepper.setEditAble(true);
 
         mContainer.postDelayed(new Runnable() {
             @Override
@@ -53,6 +55,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mStateViewHelper.stateNormal();
             }
         }, 2000);
+
+        stepper.setOnValueChangeListener(new ValueChangeListener() {
+
+            @Override
+            public void onValueChange(View view, int value) {
+                Logger.d("value:" + value);
+            }
+        });
     }
 
 

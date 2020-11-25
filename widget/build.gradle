@@ -17,7 +17,6 @@ android {
     }
 
 
-
     buildTypes {
         release {
             minifyEnabled false
@@ -62,7 +61,11 @@ dependencies {
     //开源动画库
     api "com.nineoldandroids:library:$nineoldandroids"
 
-    implementation 'com.github.mevermore:smasher_core:1.0.5'
+//    implementation 'com.github.mevermore:smasher_core:1.0.5'
+    implementation("com.github.mevermore:smasher_core:1.0.5") {
+        exclude group: 'com.squareup.okhttp3'
+    }
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
     //implementation 'cn.ymex:banner:1.6.8'
     //api 'com.youth.banner:banner:1.4.10'
 

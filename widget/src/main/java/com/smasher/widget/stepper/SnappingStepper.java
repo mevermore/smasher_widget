@@ -209,6 +209,9 @@ public class SnappingStepper extends RelativeLayout implements View.OnTouchListe
                 }
                 if (TextUtils.isDigitsOnly(temp)) {
                     value = Integer.parseInt(s.toString());
+                    if (listener != null) {
+                        listener.onValueChange(SnappingStepper.this, value);
+                    }
                 }
             }
         }
@@ -355,9 +358,9 @@ public class SnappingStepper extends RelativeLayout implements View.OnTouchListe
         {
             tvStepperContent.setText(String.valueOf(value));
         }
-        if (listener != null) {
-            listener.onValueChange(this, value);
-        }
+//        if (listener != null) {
+//            listener.onValueChange(this, value);
+//        }
         if (stepTouch) {
             postDelayed(updateRunnable,
                     (System.currentTimeMillis() - startTime > STEP_SPEED_CHANGE_DURATION)
