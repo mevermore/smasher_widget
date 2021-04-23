@@ -43,6 +43,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initView();
     }
 
     @Override
@@ -56,7 +57,6 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         root = LayoutInflater.from(mContext).inflate(getLayoutRes(), container, false);
-        initView();
         return root;
     }
 
@@ -106,8 +106,8 @@ public abstract class BaseFragment extends Fragment {
      *
      * @return LayoutRes
      */
-    protected abstract @LayoutRes
-    int getLayoutRes();
+    @LayoutRes
+    protected abstract int getLayoutRes();
 
 
 }

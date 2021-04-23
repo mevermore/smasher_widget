@@ -24,7 +24,6 @@ import com.smasher.widget.R;
 import java.lang.reflect.Method;
 
 
-
 /**
  * @author matao
  */
@@ -173,7 +172,8 @@ public abstract class BaseActivity extends AppCompatActivity {
      *
      * @return RootView
      */
-    public abstract @LayoutRes int getRootViewRes();
+    @LayoutRes
+    public abstract int getRootViewRes();
 
     /**
      * 进行初始化相关的View

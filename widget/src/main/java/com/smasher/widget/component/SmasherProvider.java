@@ -7,4 +7,5 @@ import androidx.core.content.FileProvider;
  * on 2020/4/21 0021
  */
 public class SmasherProvider extends FileProvider {
+
 }
