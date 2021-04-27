@@ -33,19 +33,15 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-
 
     //butterknife
     implementation "com.jakewharton:butterknife:10.2.3"
     //annotationProcessor是处理注解的工具，是APT(Annotation Processing Tool)的一种
     annotationProcessor "com.jakewharton:butterknife-compiler:10.2.3"
 
-    implementation("com.github.mevermore:smasher_core:1.0.5") {
-        exclude group: 'com.squareup.okhttp3'
-    }
+//    implementation("com.github.mevermore:smasher_core:1.0.5") {
+//        exclude group: 'com.squareup.okhttp3'
+//    }
 
     implementation project(path: ':widget')
 

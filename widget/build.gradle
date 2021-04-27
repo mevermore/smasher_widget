@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven'
 
 android {
     compileSdkVersion smasher_compileSdkVersion
@@ -40,18 +41,19 @@ dependencies {
     api "androidx.navigation:navigation-fragment:$navigation"
     api "androidx.navigation:navigation-ui:$navigation"
 
+    api "androidx.appcompat:appcompat:$appcompat"
     api "androidx.activity:activity:$activity"
     api "androidx.fragment:fragment:$fragment"
     api "androidx.transition:transition:$transition"
-    api "androidx.appcompat:appcompat:$appcompat"
     api "androidx.viewpager2:viewpager2:$viewpager2"
-    api "androidx.recyclerview:recyclerview:$recyclerView"
+    api "androidx.recyclerview:recyclerview:$recyclerview"
     api "androidx.cardview:cardview:$cardview"
     api "androidx.legacy:legacy-support-v4:$supportV4"
     api "androidx.constraintlayout:constraintlayout:$constraintlayout"
-
     api "androidx.vectordrawable:vectordrawable:$vectordrawable"
 
+
+    //noinspection GradleDependency
     api "com.airbnb.android:lottie:$lottie"
 
     //选择器
@@ -61,16 +63,64 @@ dependencies {
     //开源动画库
     api "com.nineoldandroids:library:$nineoldandroids"
 
-//    implementation 'com.github.mevermore:smasher_core:1.0.5'
-    implementation("com.github.mevermore:smasher_core:1.0.5") {
+    api 'com.scwang.smart:refresh-layout-kernel:2.0.3'      //核心必须依赖
+    api 'com.scwang.smart:refresh-header-classics:2.0.3'    //经典刷新头
+    api 'com.scwang.smart:refresh-footer-classics:2.0.3'    //经典加载
+
+//    implementation 'com.scwang.smart:refresh-header-radar:2.0.3'       //雷达刷新头
+//    implementation 'com.scwang.smart:refresh-header-falsify:2.0.3'     //虚拟刷新头
+//    implementation 'com.scwang.smart:refresh-header-material:2.0.3'    //谷歌刷新头
+//    implementation 'com.scwang.smart:refresh-header-two-level:2.0.3'   //二级刷新头
+//    implementation 'com.scwang.smart:refresh-footer-ball:2.0.3'        //球脉冲加载
+
+
+    api("com.smasher.primary:core:2.0.0") {
         exclude group: 'com.squareup.okhttp3'
     }
+
     implementation 'com.squareup.okhttp3:okhttp:3.12.0'
     //implementation 'cn.ymex:banner:1.6.8'
     //api 'com.youth.banner:banner:1.4.10'
+
+//    api 'com.google.guava:guava:30.0-jre'
+
+    //rxjava
+    api "io.reactivex.rxjava2:rxjava:$rxJava"
+    api "io.reactivex.rxjava2:rxandroid:$rxAndroid"
+
+    //retrofit
+    api "com.squareup.retrofit2:retrofit:$retrofit"
+    api "com.squareup.retrofit2:converter-gson:$converter_gson"
+    api "com.squareup.retrofit2:adapter-rxjava2:$adapter_rxjava2"
+
+    //glide
+    api "com.github.bumptech.glide:glide:$glide"
+    api "com.github.bumptech.glide:okhttp3-integration:$okhttp3_integration"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_annotations"
+    api "jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.0"
 
     testImplementation "junit:junit:$junit"
     androidTestImplementation "androidx.test:runner:$test_runner"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core"
 
 }
+
+
+uploadArchives {
+    configuration = configurations.archives
+    repositories {
+        mavenDeployer {
+            repository(url: 'http://127.0.0.1:8081/repository/maven-releases/') {
+                authentication(userName: 'admin', password: 'admin')
+            }
+            pom.project {
+                version '2.0.0'
+                artifactId 'widget'
+                groupId 'com.smasher.primary'
+                packaging 'aar'
+                description 'init version 2.0.0'
+            }
+        }
+    }
+}
+
