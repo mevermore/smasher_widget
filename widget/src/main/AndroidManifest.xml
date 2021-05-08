@@ -4,17 +4,17 @@
 
     <application>
 
-        <provider
-            android:name=".component.SmasherProvider"
-            android:authorities="@string/provider_authorities"
-            android:exported="false"
-            android:grantUriPermissions="true">
+<!--        <provider-->
+<!--            android:name=".component.SmasherProvider"-->
+<!--            android:authorities="@string/provider_authorities"-->
+<!--            android:exported="false"-->
+<!--            android:grantUriPermissions="true">-->
 
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-            <!--            android.support.FILE_PROVIDER_PATHS-->
-        </provider>
+<!--            <meta-data-->
+<!--                android:name="android.support.FILE_PROVIDER_PATHS"-->
+<!--                android:resource="@xml/file_paths" />-->
+<!--            &lt;!&ndash;            android.support.FILE_PROVIDER_PATHS&ndash;&gt;-->
+<!--        </provider>-->
 
     </application>
 

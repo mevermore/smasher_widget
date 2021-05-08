@@ -43,6 +43,7 @@ dependencies {
 
     api "androidx.appcompat:appcompat:$appcompat"
     api "androidx.activity:activity:$activity"
+
     api "androidx.fragment:fragment:$fragment"
     api "androidx.transition:transition:$transition"
     api "androidx.viewpager2:viewpager2:$viewpager2"
@@ -53,7 +54,7 @@ dependencies {
     api "androidx.vectordrawable:vectordrawable:$vectordrawable"
 
 
-    //noinspection GradleDependency
+
     api "com.airbnb.android:lottie:$lottie"
 
     //选择器
@@ -74,7 +75,7 @@ dependencies {
 //    implementation 'com.scwang.smart:refresh-footer-ball:2.0.3'        //球脉冲加载
 
 
-    api("com.smasher.primary:core:2.0.0") {
+    api("com.smasher.primary:core:2.0.2") {
         exclude group: 'com.squareup.okhttp3'
     }
 
@@ -114,11 +115,11 @@ uploadArchives {
                 authentication(userName: 'admin', password: 'admin')
             }
             pom.project {
-                version '2.0.0'
+                version '2.0.2'
                 artifactId 'widget'
                 groupId 'com.smasher.primary'
                 packaging 'aar'
-                description 'init version 2.0.0'
+                description 'init version 2.0.2'
             }
         }
     }
