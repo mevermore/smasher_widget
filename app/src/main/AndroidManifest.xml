@@ -3,6 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.smasher.example">
 
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".DemoApplication"
         android:allowBackup="true"
@@ -11,8 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.DialogsActivity"/>
-        <activity android:name=".activity.StructActivity" />
+
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".activity.DialogsActivity" />
+        <activity android:name=".activity.StructActivity" />
+        <activity android:name=".activity.DownloadAct" />
     </application>
 
 </manifest>

@@ -36,6 +36,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/banner_example" />
 
+
+        <Button
+            android:id="@+id/download_example"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/struct_example" />
+
+
         <Button
             android:id="@+id/dialog_example"
             android:layout_width="0dp"
@@ -46,7 +60,7 @@
             android:text="Button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/struct_example" />
+            app:layout_constraintTop_toBottomOf="@+id/download_example" />
 
         <com.smasher.widget.stepper.SnappingStepper
             android:id="@+id/stepper"

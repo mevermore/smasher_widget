@@ -5,64 +5,58 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.smasher.core.log.Logger;
 import com.smasher.example.R;
+import com.smasher.example.databinding.ActivityMainBinding;
+import com.smasher.widget.base.BaseActivity;
 import com.smasher.widget.state.StateViewHelper;
-import com.smasher.widget.stepper.SnappingStepper;
-import com.smasher.widget.stepper.ValueChangeListener;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
-    @BindView(R.id.container)
-    FrameLayout mContainer;
-    @BindView(R.id.banner_example)
-    Button mBannerExample;
-    @BindView(R.id.struct_example)
-    Button mStructExample;
-    @BindView(R.id.dialog_example)
-    Button mDialogExample;
-    @BindView(R.id.stepper)
-    SnappingStepper stepper;
 
+    ActivityMainBinding mBinding;
     private StateViewHelper mStateViewHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+    }
 
-        mStateViewHelper = new StateViewHelper(mContainer);
+    @Override
+    public View getRootView() {
+        mBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        return mBinding.getRoot();
+    }
+
+    @Override
+    public int getRootViewRes() {
+        return 0;
+    }
+
+    @Override
+    public void initView() {
+        mStateViewHelper = new StateViewHelper(mBinding.container);
         mStateViewHelper.onReloadClickListener(this);
         mStateViewHelper.stateLoading();
 
+        mBinding.container.postDelayed(() -> mStateViewHelper.stateNormal(), 2000);
 
-        stepper.setEditAble(true);
+        mBinding.stepper.setEditAble(true);
+        mBinding.stepper.setOnValueChangeListener((view, value) -> Logger.d("value:" + value));
 
-        mContainer.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mStateViewHelper.stateNormal();
-            }
-        }, 2000);
+        mBinding.bannerExample.setOnClickListener(this);
+        mBinding.structExample.setOnClickListener(this);
+        mBinding.dialogExample.setOnClickListener(this);
+        mBinding.downloadExample.setOnClickListener(this);
+    }
 
-        stepper.setOnValueChangeListener(new ValueChangeListener() {
+    @Override
+    public void initData() {
 
-            @Override
-            public void onValueChange(View view, int value) {
-                Logger.d("value:" + value);
-            }
-        });
     }
 
 
@@ -74,46 +68,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.stateNormal://显示数据视图
-                mStateViewHelper.stateNormal();
-                break;
-            case R.id.stateLoading://显示加载中视图
-                mStateViewHelper.stateLoading();
-                break;
-            case R.id.stateEmpty://显示空数据视图
-                mStateViewHelper.stateEmpty();
-                break;
-            case R.id.stateNetError://显示网络错误视图
-                mStateViewHelper.stateNetError();
-                break;
-            case R.id.stateError://显示加载错误视图
-                mStateViewHelper.stateError();
-                break;
+        int itemId = item.getItemId();
+        if (itemId == R.id.stateNormal) {//显示数据视图
+            mStateViewHelper.stateNormal();
+        } else if (itemId == R.id.stateLoading) {//显示加载中视图
+            mStateViewHelper.stateLoading();
+        } else if (itemId == R.id.stateEmpty) {//显示空数据视图
+            mStateViewHelper.stateEmpty();
+        } else if (itemId == R.id.stateNetError) {//显示网络错误视图
+            mStateViewHelper.stateNetError();
+        } else if (itemId == R.id.stateError) {//显示加载错误视图
+            mStateViewHelper.stateError();
         }
         return true;
     }
 
-    @OnClick({R.id.banner_example, R.id.struct_example, R.id.dialog_example})
-    public void onViewClicked(View view) {
+    @Override
+    public void onClick(View view) {
         Intent intent = new Intent();
-        switch (view.getId()) {
-            case R.id.banner_example:
-                break;
-            case R.id.struct_example:
-                intent.setClass(this, StructActivity.class);
-                break;
-            case R.id.dialog_example:
-                intent.setClass(this, DialogsActivity.class);
-                break;
-            default:
-                break;
+        int id = view.getId();
+        if (id == R.id.banner_example) {
+        } else if (id == R.id.struct_example) {
+            intent.setClass(this, StructActivity.class);
+        } else if (id == R.id.dialog_example) {
+            intent.setClass(this, DialogsActivity.class);
+        } else if (id == R.id.download_example) {
+            intent.setClass(this, DownloadAct.class);
         }
         startActivity(intent);
-    }
-
-    @Override
-    public void onClick(View v) {
-
     }
 }

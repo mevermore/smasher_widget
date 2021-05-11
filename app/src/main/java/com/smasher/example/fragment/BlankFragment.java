@@ -5,48 +5,34 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.smasher.example.R;
 import com.smasher.example.activity.StructActivity;
+import com.smasher.example.databinding.FragmentBlankBinding;
+import com.smasher.widget.base.BaseFragment;
 import com.smasher.widget.struct.FunctionException;
 import com.smasher.widget.struct.FunctionManager;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link BlankFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BlankFragment extends Fragment {
+public class BlankFragment extends BaseFragment implements View.OnClickListener {
 
 
     public static final String tag = BlankFragment.class.getSimpleName();
 
+    private FragmentBlankBinding mBinding;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    @BindView(R.id.textView2)
-    TextView mTextView2;
-    @BindView(R.id.function1)
-    Button mFunction1;
-    @BindView(R.id.function2)
-    Button mFunction2;
-    @BindView(R.id.function3)
-    Button mFunction3;
-    @BindView(R.id.function4)
-    Button mFunction4;
 
-    // TODO: Rename and change types of parameters
+
     private String mParam1;
     private String mParam2;
 
@@ -66,7 +52,6 @@ public class BlankFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment BlankFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static BlankFragment newInstance(String param1, String param2) {
         BlankFragment fragment = new BlankFragment();
         Bundle args = new Bundle();
@@ -88,20 +73,39 @@ public class BlankFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_blank, container, false);
-        ButterKnife.bind(this, view);
-        return view;
+        mBinding = FragmentBlankBinding.inflate(inflater, container, false);
+        return mBinding.getRoot();
     }
 
 
     /**
      * 为要实现接口的Fragment添加FunctionManager
      *
-     * @param functionManager
+     * @param functionManager functionManager
      */
+    @Override
     public void setFunctionManager(FunctionManager functionManager) {
         this.mFunctionManager = functionManager;
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
+    protected void initView() {
+
+        mBinding.function1.setOnClickListener(this);
+        mBinding.function2.setOnClickListener(this);
+        mBinding.function3.setOnClickListener(this);
+        mBinding.function4.setOnClickListener(this);
+        mBinding.textView2.setOnClickListener(this);
+    }
+
+    @Override
+    protected int getLayoutRes() {
+        return 0;
     }
 
 
@@ -117,29 +121,24 @@ public class BlankFragment extends Fragment {
         return tag;
     }
 
-    @OnClick({R.id.function1, R.id.function2, R.id.function3, R.id.function4})
-    public void onViewClicked(View view) {
+
+    @Override
+    public void onClick(View view) {
         try {
 
             if (mFunctionManager == null) {
                 return;
             }
 
-            switch (view.getId()) {
-                case R.id.function1:
-                    mFunctionManager.invokeFunction("function1");
-                    break;
-                case R.id.function2:
-                    mFunctionManager.invokeFunction("function2");
-                    break;
-                case R.id.function3:
-                    mFunctionManager.invokeFunction("NPWRFunction", String.class);
-                    break;
-                case R.id.function4:
-                    mFunctionManager.invokeFunction("WPNRFunction", "data");
-                    break;
-                default:
-                    break;
+            int id = view.getId();
+            if (id == R.id.function1) {
+                mFunctionManager.invokeFunction("function1");
+            } else if (id == R.id.function2) {
+                mFunctionManager.invokeFunction("function2");
+            } else if (id == R.id.function3) {
+                mFunctionManager.invokeFunction("NPWRFunction", String.class);
+            } else if (id == R.id.function4) {
+                mFunctionManager.invokeFunction("WPNRFunction", "data");
             }
         } catch (FunctionException e) {
             e.printStackTrace();

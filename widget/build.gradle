@@ -75,6 +75,39 @@ dependencies {
 //    implementation 'com.scwang.smart:refresh-footer-ball:2.0.3'        //球脉冲加载
 
 
+
+    // ViewModel
+    //implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle"
+    // LiveData
+    //implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle"
+    // Lifecycles only (without ViewModel or LiveData)
+    //implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle"
+
+
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle"
+    implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle"
+    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle"
+
+    // Saved state module for ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle"
+
+    // Annotation processor
+//    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle"
+    // alternately - if using Java8, use the following instead of lifecycle-compiler
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle"
+
+    // optional - helpers for implementing LifecycleOwner in a Service
+    implementation "androidx.lifecycle:lifecycle-service:$lifecycle"
+
+    // optional - ProcessLifecycleOwner provides a lifecycle for the whole application process
+    implementation "androidx.lifecycle:lifecycle-process:$lifecycle"
+
+    // optional - ReactiveStreams support for LiveData
+    //implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycle"
+
+
+
+
     api("com.smasher.primary:core:2.0.2") {
         exclude group: 'com.squareup.okhttp3'
     }
@@ -115,11 +148,11 @@ uploadArchives {
                 authentication(userName: 'admin', password: 'admin')
             }
             pom.project {
-                version '2.0.2'
+                version '2.0.4'
                 artifactId 'widget'
                 groupId 'com.smasher.primary'
                 packaging 'aar'
-                description 'init version 2.0.2'
+                description 'init version 2.0.4'
             }
         }
     }

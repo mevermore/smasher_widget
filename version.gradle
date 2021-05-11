@@ -7,15 +7,15 @@ ext {
     annotation = '1.2.0'
     material = '1.2.1'
     constraintlayout = '2.0.4'
-    lifecycle = '2.3.0'
+    lifecycle = '2.2.0'
     appcompat = '1.2.0'
 
 
     flexbox = '2.0.0'
     vectordrawable = '1.1.0'
     navigation = '2.3.5'
-    fragment = '1.2.5'
-    activity = '1.2.0'
+    fragment = '1.2.0'
+    activity = '1.1.0'
     transition = '1.4.0'
     viewpager2 = '1.0.0'
 

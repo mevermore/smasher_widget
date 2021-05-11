@@ -6,24 +6,17 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.smasher.example.R;
+import com.smasher.example.databinding.ActivityDialogsBinding;
+import com.smasher.widget.base.BaseActivity;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+public class DialogsActivity extends BaseActivity {
 
-public class DialogsActivity extends AppCompatActivity {
-
-    @BindView(R.id.imageView)
-    ImageView mImageView;
-    @BindView(R.id.button)
-    Button mButton;
+    ActivityDialogsBinding mBinding;
 
     ValueAnimator animator;
     Drawable start;
@@ -32,13 +25,30 @@ public class DialogsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dialogs);
-        ButterKnife.bind(this);
+    }
 
+    @Override
+    public int getRootViewRes() {
+        return 0;
+    }
+
+
+    @Override
+    public View getRootView() {
+        mBinding = ActivityDialogsBinding.inflate(getLayoutInflater());
+        return mBinding.getRoot();
+    }
+
+    @Override
+    public void initView() {
+        bindView();
         start = ContextCompat.getDrawable(this, R.drawable.icon_load_start);
         finish = ContextCompat.getDrawable(this, R.drawable.icon_load_finish);
-
         planB(start, finish);
+    }
+
+    @Override
+    public void initData() {
 
     }
 
@@ -46,25 +56,21 @@ public class DialogsActivity extends AppCompatActivity {
         ClipDrawable clipDrawable = new ClipDrawable(finish, Gravity.START, ClipDrawable.HORIZONTAL);
         Drawable[] drawables = new Drawable[]{start, clipDrawable};
         LayerDrawable layerDrawable = new LayerDrawable(drawables);
-        mImageView.setImageDrawable(layerDrawable);
+        mBinding.imageView.setImageDrawable(layerDrawable);
     }
 
 
-    @OnClick(R.id.button)
-    public void onViewClicked() {
-
-        animator = ValueAnimator.ofInt(0, 10000);
-        animator.setDuration(2000);
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
+    private void bindView() {
+        mBinding.button.setOnClickListener(v -> {
+            animator = ValueAnimator.ofInt(0, 10000);
+            animator.setDuration(2000);
+            animator.addUpdateListener(animation -> {
                 int currentValue = (int) animation.getAnimatedValue();
-                mImageView.setImageLevel(currentValue);
-            }
+                mBinding.imageView.setImageLevel(currentValue);
+            });
+            animator.setRepeatCount(ValueAnimator.INFINITE);
+            animator.setRepeatMode(ValueAnimator.RESTART);
+            animator.start();
         });
-        animator.setRepeatCount(ValueAnimator.INFINITE);
-        animator.setRepeatMode(ValueAnimator.RESTART);
-        animator.start();
-
     }
 }

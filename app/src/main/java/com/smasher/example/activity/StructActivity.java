@@ -2,17 +2,17 @@ package com.smasher.example.activity;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
-import android.widget.FrameLayout;
+import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.smasher.example.R;
+import com.smasher.example.databinding.ActivityStructBinding;
 import com.smasher.example.fragment.BlankFragment;
+import com.smasher.widget.base.BaseActivity;
 import com.smasher.widget.struct.FunctionManager;
 import com.smasher.widget.struct.communication.FunctionNoParamAndResult;
 import com.smasher.widget.struct.communication.FunctionWithParamAndResult;
@@ -21,29 +21,44 @@ import com.smasher.widget.struct.communication.FunctionWithResultOnly;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * @author moyu
  */
-public class StructActivity extends AppCompatActivity {
+public class StructActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = "StructActivity";
+
     FragmentManager manager;
-    @BindView(R.id.button)
-    Button mButton;
-    @BindView(R.id.container)
-    FrameLayout mContainer;
+    ActivityStructBinding mBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_struct);
-        ButterKnife.bind(this);
+    }
+
+
+    @Override
+    public View getRootView() {
+        mBinding = ActivityStructBinding.inflate(getLayoutInflater());
+        return super.getRootView();
+    }
+
+    @Override
+    public int getRootViewRes() {
+        return 0;
+    }
+
+    @Override
+    public void initView() {
         manager = getSupportFragmentManager();
+        mBinding.button.setOnClickListener(this);
         initFragment();
+    }
+
+    @Override
+    public void initData() {
+
     }
 
     private void initFragment() {
@@ -62,11 +77,6 @@ public class StructActivity extends AppCompatActivity {
         logCounts();
     }
 
-    @OnClick(R.id.button)
-    public void onViewClicked() {
-        logCounts();
-        initFragment();
-    }
 
     private void logCounts() {
         List<Fragment> list = manager.getFragments();
@@ -115,4 +125,9 @@ public class StructActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onClick(View v) {
+        logCounts();
+        initFragment();
+    }
 }
