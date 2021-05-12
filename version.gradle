@@ -9,6 +9,7 @@ ext {
     constraintlayout = '2.0.4'
     lifecycle = '2.2.0'
     appcompat = '1.2.0'
+    startup = '1.0.0'
 
 
     flexbox = '2.0.0'

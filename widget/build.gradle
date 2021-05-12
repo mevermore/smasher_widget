@@ -53,6 +53,7 @@ dependencies {
     api "androidx.constraintlayout:constraintlayout:$constraintlayout"
     api "androidx.vectordrawable:vectordrawable:$vectordrawable"
 
+    api "androidx.startup:startup-runtime:$startup"
 
 
     api "com.airbnb.android:lottie:$lottie"
@@ -73,7 +74,6 @@ dependencies {
 //    implementation 'com.scwang.smart:refresh-header-material:2.0.3'    //谷歌刷新头
 //    implementation 'com.scwang.smart:refresh-header-two-level:2.0.3'   //二级刷新头
 //    implementation 'com.scwang.smart:refresh-footer-ball:2.0.3'        //球脉冲加载
-
 
 
     // ViewModel
@@ -104,8 +104,6 @@ dependencies {
 
     // optional - ReactiveStreams support for LiveData
     //implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycle"
-
-
 
 
     api("com.smasher.primary:core:2.0.2") {

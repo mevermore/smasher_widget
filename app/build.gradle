@@ -30,7 +30,7 @@ android {
     }
 
 
-    viewBinding.enabled = true
+    android.buildFeatures.viewBinding = true
 
 }
 
