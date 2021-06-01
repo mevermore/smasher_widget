@@ -5,9 +5,11 @@ buildscript {
     apply from: 'version.gradle'
 
     repositories {
-        google()
-        jcenter()
-        mavenCentral()
+//        google()
+//        jcenter()
+//        mavenCentral()
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
 
     }
     dependencies {
@@ -20,14 +22,17 @@ buildscript {
 
 allprojects {
     repositories {
-        google()
-        mavenCentral()
-        maven { url "https://jitpack.io" }
-        jcenter()
+//        google()
+//        mavenCentral()
+//        jcenter()
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+
         maven {
             url 'http://127.0.0.1:8081/repository/maven-releases'
             //这个路径就是Browse下maven-release右边有一个copy按钮，复制出来的。
         }
+        maven { url "https://jitpack.io" }
 
     }
 }
