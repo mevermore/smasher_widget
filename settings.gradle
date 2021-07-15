@@ -1,3 +1,4 @@
 rootProject.name='Example'
 include ':app'
 include ':widget'
+include ':paging'

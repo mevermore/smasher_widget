@@ -84,7 +84,6 @@ dependencies {
     //implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle"
 
 
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle"
     implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle"
     implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle"
 
@@ -106,7 +105,7 @@ dependencies {
     //implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycle"
 
 
-    api("com.smasher.primary:core:2.0.2") {
+    api("com.smasher.primary:core:2.0.3-snap") {
         exclude group: 'com.squareup.okhttp3'
     }
 
@@ -146,11 +145,11 @@ uploadArchives {
                 authentication(userName: 'admin', password: 'admin')
             }
             pom.project {
-                version '2.0.4'
+                version '2.0.5-snap'
                 artifactId 'widget'
                 groupId 'com.smasher.primary'
                 packaging 'aar'
-                description 'init version 2.0.4'
+                description 'init version 2.0.5-snap'
             }
         }
     }

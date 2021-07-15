@@ -26,7 +26,4 @@
     <string name="app_exit">退出当前登录</string>
     <string name="app_exit_verify">再按一次退出「%s」</string>
 
-
-    <string name="provider_authorities">applicationId</string>
-
 </resources>
